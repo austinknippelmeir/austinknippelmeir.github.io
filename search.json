@@ -1,31 +1,17 @@
 [
   {
-    "objectID": "test-post/index.html",
-    "href": "test-post/index.html",
-    "title": "Knicks cause me Misery",
+    "objectID": "posts/failures-of-the-knicks/index.html",
+    "href": "posts/failures-of-the-knicks/index.html",
+    "title": "The Knicks; a Tragic Franchise",
     "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "Code\nplayoffs <- NYK %>% filter(season == 1994 | season == 1995 | season == 1980 | season == 1982 | season == 1983 | season == 1987 | season == 1988 | season == 1989 | season == 1990 | season == 1991 | season == 1992 | season == 1993 | season == 1996 | season == 1997 | season == 1998 | season == 1999 | season == 2000 | season == 2003 | season == 2010 | season == 2011 | season == 2012 | season == 2020)\n\nbad <- NYK %>% filter(season == 2019)\n\nggplot() + geom_bar(data=NYK, aes(x=season, weight=w),fill=\"grey\") +\n   geom_bar(data=playoffs, aes(x=season, weight=w),fill=\"blue\") +\n   geom_bar(data=bad, aes(x=season, weight=w),fill=\"orange\") +\n   labs(\n    x=\"Season\", \n    y=\"Wins\", \n    title=\"Knicks used to be good\", \n    subtitle=\"The Knicks are literally bad for your mental health, stop watching them.\", \n    caption=\"Source: Data Provider | By Austin K\"\n    ) +\n  theme_minimal() + \n  theme(\n    plot.title = element_text(size = 20, face = \"bold\"),\n    axis.title = element_text(size = 8), \n    plot.subtitle = element_text(size=10), \n    panel.grid.minor = element_blank(),\n    plot.title.position = \"plot\"\n    ) \n\n\n\n\n\n\n\nCode\nNYK %>% filter(season!=2020) %>% top_n(10, wt=-w) %>% select(season, w, l, e_fg_percent) %>% gt() %>% \n cols_label(\n    e_fg_percent = \"Effective Field Goal Percentage\",\n    season = \"Season\",\n    w = \"W\",\n    l = \"L\"\n  ) %>%\n  tab_header(\n    title = \"Where the 2018-19 Knicks rank among the worst\",\n    subtitle = \"This will compare effective field goal percentage with the worst teams in Knicks history.\"\n  )  %>% tab_style(\n    style = cell_text(color = \"black\", weight = \"bold\", align = \"left\"),\n    locations = cells_title(\"title\")\n  ) %>% tab_style(\n    style = cell_text(color = \"black\", align = \"left\"),\n    locations = cells_title(\"subtitle\")\n  ) %>%\n  tab_source_note(\n    source_note = md(\"**By:** Austin Knippelmeir  |  **Source:** Basketball Reference\"))%>% \n  tab_style(\n     locations = cells_column_labels(columns = everything()),\n     style = list(\n       cell_borders(sides = \"bottom\", weight = px(3)),\n       cell_text(weight = \"bold\", size=12)\n     )) %>%\n  tab_style(\n    style = list(\n      cell_fill(color = \"blue\"),\n      cell_text(color = \"orange\")\n      ),\n    locations = cells_body(\n      rows = season == \"2019\")\n  )\n\n\n\n\n\n\n  \n    \n      Where the 2018-19 Knicks rank among the worst\n    \n    \n      This will compare effective field goal percentage with the worst teams in Knicks history.\n    \n  \n  \n    \n      Season\n      W\n      L\n      Effective Field Goal Percentage\n    \n  \n  \n    1985\n24\n58\n0.487\n    1986\n23\n59\n0.466\n    1987\n24\n58\n0.483\n    1999\n27\n23\n0.463\n    2006\n23\n59\n0.481\n    2008\n23\n59\n0.475\n    2010\n29\n53\n0.509\n    2015\n17\n65\n0.470\n    2018\n29\n53\n0.510\n    2019\n17\n65\n0.490\n  \n  \n    \n      By: Austin Knippelmeir  |  Source: Basketball Reference"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Misery",
     "section": "",
-    "text": "news\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 18, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "knicks\n\n\nbasketball\n\n\nnba\n\n\n\n\n\n\n\n\n\n\n\nNov 4, 2022\n\n\nAustin Knippelmeir\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -33,5 +19,12 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "Project.html",
+    "href": "Project.html",
+    "title": "The Ineptitude of the Knicks",
+    "section": "",
+    "text": "Knicks %>% filter(team == \"New York Knicks\")\n\n# A tibble: 43 × 29\n      rk team    age     w     l    pw    pl   mov   sos   srs o_rtg d_rtg n_rtg\n   <dbl> <chr> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>\n 1    15 New …  24.1    39    43    38    44 -1.15  0.19 -0.96 106.  108.   -1  \n 2     8 New …  25.1    50    32    45    37  1.62  0.38  2    106   104.    1.6\n 3    18 New …  28      33    49    34    48 -2.67  0.52 -2.15 106   109.   -2.6\n 4     9 New …  26.5    44    38    48    34  2.45  0.13  2.58 102.   99.9   2.5\n 5     3 New …  27.2    47    35    51    31  3.84 -0.05  3.79 107   103.    3.9\n 6    20 New …  25.8    24    58    29    53 -4.63  0.54 -4.09 105.  110.   -4.7\n 7    22 New …  25.5    23    59    26    56 -5.61  0.79 -4.82  99.5 105.   -5.7\n 8    22 New …  26.4    24    58    25    57 -6.27  0.85 -5.42 105.  111.   -6.3\n 9    14 New …  25.3    38    44    40    42 -0.49  0.63  0.14 106.  106.   -0.5\n10     8 New …  25.3    52    30    50    32  3.77 -0.15  3.62 111.  108.    3.6\n# … with 33 more rows, and 16 more variables: pace <dbl>, f_tr <dbl>,\n#   x3p_ar <dbl>, ts_percent <dbl>, e_fg_percent <dbl>, tov_percent <dbl>,\n#   orb_percent <dbl>, ft_fga <dbl>, e_fg_percent_2 <dbl>, tov_percent_2 <dbl>,\n#   drb_percent <dbl>, ft_fga_2 <dbl>, arena <chr>, attend <dbl>,\n#   attend_g <dbl>, season <dbl>\n\n\n\nOffRtg <- Knicks %>%\n  filter(season == 2018)%>% filter(team == \"New York Knicks\") %>% mutate(TeamSeason = paste(team, season))\n\n\nNYK <- Knicks %>% filter(team == \"New York Knicks\")\n\nggplot() + \n  geom_point(data=Knicks, aes(x=d_rtg, y=o_rtg), color=\"grey\") +\n  geom_point(data=NYK, aes(x=d_rtg, y=o_rtg), color=\"blue\") +\n  geom_point(data=OffRtg, aes(x=d_rtg, y=o_rtg), color=\"red\") + \n  geom_text_repel(data=OffRtg, aes(x=d_rtg, y=o_rtg, label=TeamSeason)) +\n    labs(\n    x=\"Defensive Rating\", \n    y=\"Offensive Rating\", \n    title=\"Knicks Offensive and Defensive Failures\", \n    subtitle=\"The Knicks ineptitude is so terrible that even when they are not the worst they still are somehow.\", \n    caption=\"Source: Data Provider | By Austin K\"\n    ) +\n  theme_minimal() + \n  theme(\n    plot.title = element_text(size = 20, face = \"bold\"),\n    axis.title = element_text(size = 8), \n    plot.subtitle = element_text(size=10), \n    panel.grid.minor = element_blank(),\n    plot.title.position = \"plot\"\n    ) \n\n\n\n\n\nplayoffs <- NYK %>% filter(season == 1994 | season == 1995 | season == 1980 | season == 1982 | season == 1983 | season == 1987 | season == 1988 | season == 1989 | season == 1990 | season == 1991 | season == 1992 | season == 1993 | season == 1996 | season == 1997 | season == 1998 | season == 1999 | season == 2000 | season == 2003 | season == 2010 | season == 2011 | season == 2012 | season == 2020)\n\nbad <- NYK %>% filter(season == 2018)\n\nggplot() + geom_bar(data=NYK, aes(x=season, weight=w),fill=\"grey\") +\n   geom_bar(data=playoffs, aes(x=season, weight=w),fill=\"blue\") +\n   geom_bar(data=bad, aes(x=season, weight=w),fill=\"orange\") +\n   labs(\n    x=\"Season\", \n    y=\"Wins\", \n    title=\"Knicks used to be good\", \n    subtitle=\"The Knicks are literally bad for your mental health, stop watching them.\", \n    caption=\"Source: Data Provider | By Austin K\"\n    ) +\n  theme_minimal() + \n  theme(\n    plot.title = element_text(size = 20, face = \"bold\"),\n    axis.title = element_text(size = 8), \n    plot.subtitle = element_text(size=10), \n    panel.grid.minor = element_blank(),\n    plot.title.position = \"plot\"\n    )"
   }
 ]
